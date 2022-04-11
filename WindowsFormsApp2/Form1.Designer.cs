@@ -34,8 +34,13 @@ namespace WindowsFormsApp2
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrixFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
+            this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,15 +82,27 @@ namespace WindowsFormsApp2
             // 
             // pointFiltersToolStripMenuItem
             // 
+            this.pointFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invertFiltersToolStripMenuItem});
             this.pointFiltersToolStripMenuItem.Name = "pointFiltersToolStripMenuItem";
-            this.pointFiltersToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.pointFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pointFiltersToolStripMenuItem.Text = "Point Filters";
+            // 
+            // invertFiltersToolStripMenuItem
+            // 
+            this.invertFiltersToolStripMenuItem.Name = "invertFiltersToolStripMenuItem";
+            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.invertFiltersToolStripMenuItem.Text = "Invert Filters";
+            this.invertFiltersToolStripMenuItem.Click += new System.EventHandler(this.invertFiltersToolStripMenuItem_Click);
             // 
             // matrixFiltersToolStripMenuItem
             // 
+            this.matrixFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.blurToolStripMenuItem});
             this.matrixFiltersToolStripMenuItem.Name = "matrixFiltersToolStripMenuItem";
-            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matrixFiltersToolStripMenuItem.Text = "Matrix Filters";
+            this.matrixFiltersToolStripMenuItem.Click += new System.EventHandler(this.matrixFiltersToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -96,9 +113,43 @@ namespace WindowsFormsApp2
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted_1);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(31, 393);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(493, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(565, 393);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // blurToolStripMenuItem
+            // 
+            this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blurToolStripMenuItem.Text = "Blur";
+            this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip3);
@@ -124,6 +175,11 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.ToolStripMenuItem pointFiltersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matrixFiltersToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem invertFiltersToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
     }
 }
 

@@ -45,5 +45,55 @@ namespace WindowsFormsApp2
         {
 
         }
+
+        private void invertFiltersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*
+             InvertFilter filter = new InvertFilter();
+             Bitmap resultImage = filter.processImage(image);
+             pictureBox1.Image = resultImage;
+             pictureBox1.Refresh();
+            
+           */
+            Filters filter = new InvertFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            image = ((Filters)e.Argument).processImage(image,backgroundWorker1);
+
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.CancelAsync();
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted_1(object sender, RunWorkerCompletedEventArgs e)
+        {
+            pictureBox1.Image = image;
+            pictureBox1.Refresh();
+            progressBar1.Value = 0;
+        }
+
+        private void matrixFiltersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        //on the form in the matrix filters add an element "Blur" and do double click functio to crate a function
+        private void blurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Blurfilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
