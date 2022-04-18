@@ -95,16 +95,16 @@ namespace WindowsFormsApp2
         }
     }
     //create a blurfilter thta overrides the default constaractor 
-    class Blurfilter:MatrixFilters
+    class Blurfilter : MatrixFilters
     {
         public Blurfilter()
         {
             int sizeX = 3;
             int sizeY = 3;
             kernel = new float[sizeX, sizeY];
-            for(int i = 0; i < sizeX; i++)
+            for (int i = 0; i < sizeX; i++)
             {
-                for(int j=0;j<sizeY;j++)
+                for (int j = 0; j < sizeY; j++)
                 {
                     kernel[i, j] = 1.0f / (float)(sizeX * sizeY);
 
@@ -112,45 +112,45 @@ namespace WindowsFormsApp2
 
             }
         }
-
-        public void  createGaussianKernel(int radius,float sigma)
-        {
-            //calculate kernel size
-            int size = 2 *radius + 1;
-            //create kernel
-            kernel = new float[size, size];
-            //coefficient of norma
-            float norm = 0;
-            //calculate coefficients
-            for (int i=-radius;i<=radius;i++)
-            {
-                for (int j=-radius;j<=radius;j++)
-                {
-                    kernel[i+radius,j+radius]=(float)(Math.Exp(-(i*i+j*j)/sigma*sigma));
-                    norm += kernel[i + radius, j + radius];
-
-                }
-            }
-            //normalize coefficients
-            for(int i = 0;i<size;i++)
-            {
-                for(int j=0;j<size;j++)
-                {
-                    kernel[i, j] /= norm;
-
-                }
-            }
-
-
-
-
-        }
+    }
+    class GaussianFilter : MatrixFilters
+    {
         public GaussianFilter()
         {
             createGaussianKernel(3, 2);
+           
         }
+       
+            public void createGaussianKernel(int radius, float sigma)
+            {
+                //calculate kernel size
+                int size = 2 * radius + 1;
+                //create kernel
+                kernel = new float[size, size];
+                //coefficient of norma
+                float norm = 0;
+                //calculate coefficients
+                for (int i = -radius; i <= radius; i++)
+                {
+                    for (int j = -radius; j <= radius; j++)
+                    {
+                        kernel[i + radius, j + radius] = (float)(Math.Exp(-(i * i + j * j) / sigma * sigma));
+                        norm += kernel[i + radius, j + radius];
+
+                    }
+                }
+                //normalize coefficients
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        kernel[i, j] /= norm;
+
+                    }
+                }
+
+            }
+        
     }
-
-  
+    
 }
-
