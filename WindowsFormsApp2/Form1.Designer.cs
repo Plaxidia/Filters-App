@@ -36,11 +36,12 @@ namespace WindowsFormsApp2
             this.pointFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrixFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
-            this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaussianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -98,11 +99,19 @@ namespace WindowsFormsApp2
             // matrixFiltersToolStripMenuItem
             // 
             this.matrixFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.blurToolStripMenuItem});
+            this.blurToolStripMenuItem,
+            this.gaussianToolStripMenuItem});
             this.matrixFiltersToolStripMenuItem.Name = "matrixFiltersToolStripMenuItem";
             this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matrixFiltersToolStripMenuItem.Text = "Matrix Filters";
             this.matrixFiltersToolStripMenuItem.Click += new System.EventHandler(this.matrixFiltersToolStripMenuItem_Click);
+            // 
+            // blurToolStripMenuItem
+            // 
+            this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blurToolStripMenuItem.Text = "Blur";
+            this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -138,12 +147,12 @@ namespace WindowsFormsApp2
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // blurToolStripMenuItem
+            // gaussianToolStripMenuItem
             // 
-            this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
-            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.blurToolStripMenuItem.Text = "Blur";
-            this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
+            this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gaussianToolStripMenuItem.Text = "Gaussian";
+            this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.gaussianToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -165,9 +174,9 @@ namespace WindowsFormsApp2
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        //private System.Windows.Forms.PictureBox pictureBox2;
+        //private System.Windows.Forms.MenuStrip menuStrip2;
+       // private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -180,6 +189,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
     }
 }
 
