@@ -119,6 +119,7 @@ namespace WindowsFormsApp2
         {
             createGaussianKernel(3, 2);
            
+<<<<<<< HEAD
         }
        
             public void createGaussianKernel(int radius, float sigma)
@@ -184,7 +185,40 @@ namespace WindowsFormsApp2
                Clamp((int)resultB, 0, 255),
                Clamp((int)resultG, 0, 255)
                );
+=======
+>>>>>>> ab147995782bd8346310ded6cc6da108c3b9c1fd
         }
+       
+            public void createGaussianKernel(int radius, float sigma)
+            {
+                //calculate kernel size
+                int size = 2 * radius + 1;
+                //create kernel
+                kernel = new float[size, size];
+                //coefficient of norma
+                float norm = 0;
+                //calculate coefficients
+                for (int i = -radius; i <= radius; i++)
+                {
+                    for (int j = -radius; j <= radius; j++)
+                    {
+                        kernel[i + radius, j + radius] = (float)(Math.Exp(-(i * i + j * j) / sigma * sigma));
+                        norm += kernel[i + radius, j + radius];
+
+                    }
+                }
+                //normalize coefficients
+                for (int i = 0; i < size; i++)
+                {
+                    for (int j = 0; j < size; j++)
+                    {
+                        kernel[i, j] /= norm;
+
+                    }
+                }
+
+            }
+        
     }
     
 }
