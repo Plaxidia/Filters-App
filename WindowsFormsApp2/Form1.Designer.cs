@@ -35,16 +35,15 @@ namespace WindowsFormsApp2
             this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pointFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.invertFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrixFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grayScaleFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
-            this.grayScaleFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -80,8 +79,7 @@ namespace WindowsFormsApp2
             this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pointFiltersToolStripMenuItem,
             this.matrixFiltersToolStripMenuItem,
-            this.grayScaleFilterToolStripMenuItem,
-            this.sToolStripMenuItem});
+            this.grayScaleFilterToolStripMenuItem});
             this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
             this.filtersToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.filtersToolStripMenuItem.Text = "Filters";
@@ -98,9 +96,16 @@ namespace WindowsFormsApp2
             // invertFiltersToolStripMenuItem
             // 
             this.invertFiltersToolStripMenuItem.Name = "invertFiltersToolStripMenuItem";
-            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.invertFiltersToolStripMenuItem.Text = "Invert Filters";
             this.invertFiltersToolStripMenuItem.Click += new System.EventHandler(this.invertFiltersToolStripMenuItem_Click);
+            // 
+            // sepiaToolStripMenuItem
+            // 
+            this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sepiaToolStripMenuItem.Text = "Sepia";
+            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
             // 
             // matrixFiltersToolStripMenuItem
             // 
@@ -115,16 +120,23 @@ namespace WindowsFormsApp2
             // blurToolStripMenuItem
             // 
             this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
-            this.blurToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.blurToolStripMenuItem.Text = "Blur";
             this.blurToolStripMenuItem.Click += new System.EventHandler(this.blurToolStripMenuItem_Click);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.gaussianToolStripMenuItem_Click);
+            // 
+            // grayScaleFilterToolStripMenuItem
+            // 
+            this.grayScaleFilterToolStripMenuItem.Name = "grayScaleFilterToolStripMenuItem";
+            this.grayScaleFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grayScaleFilterToolStripMenuItem.Text = "GrayScaleFilter";
+            this.grayScaleFilterToolStripMenuItem.Click += new System.EventHandler(this.grayScaleFilterToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -159,26 +171,6 @@ namespace WindowsFormsApp2
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // grayScaleFilterToolStripMenuItem
-            // 
-            this.grayScaleFilterToolStripMenuItem.Name = "grayScaleFilterToolStripMenuItem";
-            this.grayScaleFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.grayScaleFilterToolStripMenuItem.Text = "GrayScaleFilter";
-            this.grayScaleFilterToolStripMenuItem.Click += new System.EventHandler(this.grayScaleFilterToolStripMenuItem_Click);
-            // 
-            // sToolStripMenuItem
-            // 
-            this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-            this.sToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sToolStripMenuItem.Text = "s";
-            // 
-            // sepiaToolStripMenuItem
-            // 
-            this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
-            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sepiaToolStripMenuItem.Text = "Sepia";
-            this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.sepiaToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -217,8 +209,9 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem grayScaleFilterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sepiaToolStripMenuItem;
+=======
+>>>>>>> be242ca34ef0833edb928bd291bc696f2355cc1a
     }
 }
 

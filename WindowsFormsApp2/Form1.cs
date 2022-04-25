@@ -109,6 +109,7 @@ namespace WindowsFormsApp2
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
+
       
 
         private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,5 +118,6 @@ namespace WindowsFormsApp2
 
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
     }
 }
