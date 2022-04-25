@@ -101,5 +101,21 @@ namespace WindowsFormsApp2
             Filters filter = new GaussianFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void grayScaleFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new GrayScaleFilter();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+      
+
+        private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Sepia();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }

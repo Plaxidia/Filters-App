@@ -40,7 +40,6 @@ namespace WindowsFormsApp2
 
     }
 
-
     class InvertFilter : Filters
     {
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
@@ -49,8 +48,6 @@ namespace WindowsFormsApp2
             Color resultColor = Color.FromArgb(255 - sourceColor.R, 255 - sourceColor.G, 255 - sourceColor.B);
             return resultColor;
         }
-
-
     }
     //Matrix filters
     class MatrixFilters :Filters
@@ -82,8 +79,6 @@ namespace WindowsFormsApp2
                     resultG += neighborColor.G * kernel[k + radiusX, I + radiusY];
                     resultB += neighborColor.B * kernel[k + radiusX, I + radiusY];
                     //as a result work  return the color, made of your variables
-
-
                 }
 
             }
@@ -119,7 +114,7 @@ namespace WindowsFormsApp2
         {
             createGaussianKernel(3, 2);
            
-<<<<<<< HEAD
+
         }
        
             public void createGaussianKernel(int radius, float sigma)
@@ -154,71 +149,46 @@ namespace WindowsFormsApp2
         
     }
     class GrayScaleFilter:Filters
-    {  
+    {
+       // protected float[,] kernel = null;
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
-        {
-            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
-
-            //store  the color componets of the resulting color
-            float resultR = 0;
-            float resultG = 0;
-            float resultB = 0;
-
-            //create the loops that will sort out the pixel neigborbood 
-            
-            for (int i = 0; i < sourceImage.Width; i++)
-            {
-                for (int j = 0; j < sourceImage.Height; j++)
-                {
-
-                    Color oc = sourceImage.GetPixel(i, j);
+        { 
+                    Color oc = sourceImage.GetPixel(x, y);
                     int grayscale = (int)((oc.R * 0.36) + (oc.G * 0.53) + oc.B * 0.11);
                     Color nc = Color.FromArgb(oc.A, grayscale, grayscale, grayscale);
-                    resultImage.SetPixel(i, j, nc);
-
-
-                }
-
-            }
-            return Color.FromArgb(
-               Clamp((int)resultR, 0, 255),
-               Clamp((int)resultB, 0, 255),
-               Clamp((int)resultG, 0, 255)
-               );
-=======
->>>>>>> ab147995782bd8346310ded6cc6da108c3b9c1fd
+     
+            return nc;
+               
         }
-       
-            public void createGaussianKernel(int radius, float sigma)
-            {
-                //calculate kernel size
-                int size = 2 * radius + 1;
-                //create kernel
-                kernel = new float[size, size];
-                //coefficient of norma
-                float norm = 0;
-                //calculate coefficients
-                for (int i = -radius; i <= radius; i++)
-                {
-                    for (int j = -radius; j <= radius; j++)
-                    {
-                        kernel[i + radius, j + radius] = (float)(Math.Exp(-(i * i + j * j) / sigma * sigma));
-                        norm += kernel[i + radius, j + radius];
-
-                    }
-                }
-                //normalize coefficients
-                for (int i = 0; i < size; i++)
-                {
-                    for (int j = 0; j < size; j++)
-                    {
-                        kernel[i, j] /= norm;
-
-                    }
-                }
-
-            }
+      
         
     }
-    
+    //create a filter that will convert image into brown color 
+    class Sepia : Filters
+    {
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            
+            Color oc = sourceImage.GetPixel(x, y);
+            int grayscale = (int)((oc.R * 0.36) + (oc.G * 0.53) + oc.B * 0.11);
+          
+            float k = 20;
+            float R = grayscale + (2 * k);
+            float G= grayscale + 0.5f * k;
+            float B=  grayscale-1*k;
+ 
+           // return Color.FromArgb(A, R, G, B);
+            return Color.FromArgb(
+             Clamp((int)oc.A, 0, 255),
+             Clamp((int)R, 0, 255),
+             Clamp((int)G, 0, 255),
+              Clamp((int)B, 0, 255)
+             );
+
+        }
+
+       
+    }
+
+
 }
