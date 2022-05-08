@@ -11,9 +11,9 @@ namespace WindowsFormsApp2
 {
     public abstract class Filters
     {
-        protected abstract Color  calculateNewPixelColor(Bitmap sourceImage, int x, int y);
-         
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        protected abstract Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y);
+
+        public Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
         {   //at the moment the function creates a blank image 
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
             //get all pixels of the image
@@ -22,14 +22,14 @@ namespace WindowsFormsApp2
                 worker.ReportProgress((int)((float)i / resultImage.Width * 100));
                 for (int j = 0; j < sourceImage.Height; j++)
                 {
-                    resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));
+                    resultImage.SetPixel(i, j, CalculateNewPixelColor(sourceImage, i, j));
                 }
             }
             return resultImage;
         }
         //calcuculate Pixel color and should be unique to eacg real class
 
-        public int Clamp(int value,int min,int max)
+        public int Clamp(int value, int min, int max)
         {
             if (value < min)
                 return min;
@@ -37,12 +37,11 @@ namespace WindowsFormsApp2
                 return max;
             return value;
         }
-
     }
 
     class InvertFilter : Filters
     {
-        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             Color sourceColor = sourceImage.GetPixel(x, y);
             Color resultColor = Color.FromArgb(255 - sourceColor.R, 255 - sourceColor.G, 255 - sourceColor.B);
@@ -50,15 +49,15 @@ namespace WindowsFormsApp2
         }
     }
     //Matrix filters
-    class MatrixFilters :Filters
+    class MatrixFilters : Filters
     {
         protected float[,] kernel = null;
         protected MatrixFilters() { }
         public MatrixFilters(float[,] kernel)
-            {
-            this.kernel= kernel;
-            }
-        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            this.kernel = kernel;
+        }
+        protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             int radiusX = kernel.GetLength(0) / 2;
             int radiusY = kernel.GetLength(1) / 2;
@@ -112,83 +111,97 @@ namespace WindowsFormsApp2
     {
         public GaussianFilter()
         {
-            createGaussianKernel(3, 2);
-           
-
+            CreateGaussianKernel(3, 2);
         }
-       
-            public void createGaussianKernel(int radius, float sigma)
+
+        public void CreateGaussianKernel(int radius, float sigma)
+        {
+            //calculate kernel size
+            int size = 2 * radius + 1;
+            //create kernel
+            kernel = new float[size, size];
+            //coefficient of norma
+            float norm = 0;
+            //calculate coefficients
+            for (int i = -radius; i <= radius; i++)
             {
-                //calculate kernel size
-                int size = 2 * radius + 1;
-                //create kernel
-                kernel = new float[size, size];
-                //coefficient of norma
-                float norm = 0;
-                //calculate coefficients
-                for (int i = -radius; i <= radius; i++)
+                for (int j = -radius; j <= radius; j++)
                 {
-                    for (int j = -radius; j <= radius; j++)
-                    {
-                        kernel[i + radius, j + radius] = (float)(Math.Exp(-(i * i + j * j) / sigma * sigma));
-                        norm += kernel[i + radius, j + radius];
+                    kernel[i + radius, j + radius] = (float)(Math.Exp(-(i * i + j * j) / sigma * sigma));
+                    norm += kernel[i + radius, j + radius];
 
-                    }
                 }
-                //normalize coefficients
-                for (int i = 0; i < size; i++)
-                {
-                    for (int j = 0; j < size; j++)
-                    {
-                        kernel[i, j] /= norm;
-
-                    }
-                }
-
             }
-        
-    }
-    class GrayScaleFilter:Filters
-    {
-       // protected float[,] kernel = null;
-        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
-        { 
-                    Color oc = sourceImage.GetPixel(x, y);
-                    int grayscale = (int)((oc.R * 0.36) + (oc.G * 0.53) + oc.B * 0.11);
-                    Color nc = Color.FromArgb(oc.A, grayscale, grayscale, grayscale);
-     
-            return nc;
-               
+            //normalize coefficients
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    kernel[i, j] /= norm;
+                }
+            }
+
         }
-      
-        
+    }
+    class GrayScaleFilter : Filters
+    {
+        protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            Color oc = sourceImage.GetPixel(x, y);
+            int grayscale = (int)((oc.R * 0.36) + (oc.G * 0.53) + oc.B * 0.11);
+            Color nc = Color.FromArgb(oc.A, grayscale, grayscale, grayscale);
+
+            return nc;
+        }
     }
     //create a filter that will convert image into brown color 
     class Sepia : Filters
     {
-        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
-            
             Color oc = sourceImage.GetPixel(x, y);
             int grayscale = (int)((oc.R * 0.36) + (oc.G * 0.53) + oc.B * 0.11);
-          
+
             float k = 20;
             float R = grayscale + (2 * k);
-            float G= grayscale + 0.5f * k;
-            float B=  grayscale-1*k;
- 
-           // return Color.FromArgb(A, R, G, B);
+            float G = grayscale + 0.5f * k;
+            float B = grayscale - 1 * k;
+
+            // return Color.FromArgb(A, R, G, B);
             return Color.FromArgb(
              Clamp((int)oc.A, 0, 255),
              Clamp((int)R, 0, 255),
              Clamp((int)G, 0, 255),
               Clamp((int)B, 0, 255)
              );
+        }
+    }
+    class Threshold : Filters
+    {
+       protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+            Color sourceColor = sourceImage.GetPixel(x, y);
+            int red = sourceColor.R;
+            int green = sourceColor.G;
+            int blue = sourceColor.B;
+            int gray = (int)((.36 * red) + (.53 * green) + (.11 * blue));
+            if (gray < 128)
+            {
+                red = 0;
+                green = 0;
+                blue = 0;
+            }
+            else
+            {
+                red = 255;
+                green = 255;
+                blue = 255;
+            }
+            Color resultColor = Color.FromArgb(red, green, blue);
+            return resultColor;
 
         }
-
-       
     }
-
+   
 
 }
