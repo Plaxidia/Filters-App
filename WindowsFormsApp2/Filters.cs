@@ -82,7 +82,7 @@ namespace WindowsFormsApp2
 
             }
             return Color.FromArgb(
-               Clamp((int)resultR, 0, 255), 
+               Clamp((int)resultR, 0, 255),
                Clamp((int)resultG, 0, 255),
                Clamp((int)resultB, 0, 255)
                );
@@ -178,7 +178,7 @@ namespace WindowsFormsApp2
     }
     class Threshold : Filters
     {
-       protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        protected override Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y)
         {
             Color sourceColor = sourceImage.GetPixel(x, y);
             int red = sourceColor.R;
@@ -202,6 +202,15 @@ namespace WindowsFormsApp2
 
         }
     }
-   
 
+    class Sobel : MatrixFilters
+    {
+        public Sobel()
+        {
+            int sizeX = 3;
+            int sizeY = 3;
+            ///kernel = new float[sizeX, sizeY];
+            kernel = new float[3, 3] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
+        }
+    }
 }

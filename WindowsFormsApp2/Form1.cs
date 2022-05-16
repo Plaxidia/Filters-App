@@ -67,6 +67,8 @@ namespace WindowsFormsApp2
         private void Button1_Click(object sender, EventArgs e)
         {
             backgroundWorker1.CancelAsync();
+
+            Application.Exit();
         }
 
         private void BackgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -123,6 +125,15 @@ namespace WindowsFormsApp2
         private void FiltersToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        
+
+        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Sobel();
+
+            backgroundWorker1.RunWorkerAsync(filter);
         }
     }
 }
