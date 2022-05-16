@@ -82,9 +82,9 @@ namespace WindowsFormsApp2
 
             }
             return Color.FromArgb(
-               Clamp((int)resultR, 0, 255),
-               Clamp((int)resultB, 0, 255),
-               Clamp((int)resultG, 0, 255)
+               Clamp((int)resultR, 0, 255), 
+               Clamp((int)resultG, 0, 255),
+               Clamp((int)resultB, 0, 255)
                );
         }
     }

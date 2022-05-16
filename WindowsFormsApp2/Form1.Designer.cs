@@ -84,11 +84,10 @@ namespace WindowsFormsApp2
             this.pointFiltersToolStripMenuItem,
             this.matrixFiltersToolStripMenuItem,
             this.grayScaleFilterToolStripMenuItem});
-            this.filtersToolStripMenuItem.Enabled = false;
             this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
             this.filtersToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.filtersToolStripMenuItem.Text = "Filters";
-           // this.filtersToolStripMenuItem.Click += new System.EventHandler(this.filtersToolStripMenuItem_Click);
+            this.filtersToolStripMenuItem.Click += new System.EventHandler(this.FiltersToolStripMenuItem_Click);
             // 
             // pointFiltersToolStripMenuItem
             // 
@@ -103,21 +102,21 @@ namespace WindowsFormsApp2
             // invertFiltersToolStripMenuItem
             // 
             this.invertFiltersToolStripMenuItem.Name = "invertFiltersToolStripMenuItem";
-            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.invertFiltersToolStripMenuItem.Text = "Invert Filters";
             this.invertFiltersToolStripMenuItem.Click += new System.EventHandler(this.InvertFiltersToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
-            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sepiaToolStripMenuItem.Text = "Sepia";
             this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.SepiaToolStripMenuItem_Click);
             // 
             // thresholdToolStripMenuItem2
             // 
             this.thresholdToolStripMenuItem2.Name = "thresholdToolStripMenuItem2";
-            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
             this.thresholdToolStripMenuItem2.Text = "Threshold";
             this.thresholdToolStripMenuItem2.Click += new System.EventHandler(this.ThresholdToolStripMenuItem2_Click);
             // 
@@ -134,14 +133,14 @@ namespace WindowsFormsApp2
             // blurToolStripMenuItem
             // 
             this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
-            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.blurToolStripMenuItem.Text = "Blur";
             this.blurToolStripMenuItem.Click += new System.EventHandler(this.BlurToolStripMenuItem_Click);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianToolStripMenuItem_Click);
             // 
@@ -157,7 +156,7 @@ namespace WindowsFormsApp2
             // thresholdToolStripMenuItem
             // 
             this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
-            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
             // pictureBox1
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
+
     public partial class Form1 : Form
     {
         Bitmap image;
@@ -23,7 +24,7 @@ namespace WindowsFormsApp2
 
         }
 
-        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e )
         {
 
 
@@ -119,6 +120,9 @@ namespace WindowsFormsApp2
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-       
+        private void FiltersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
