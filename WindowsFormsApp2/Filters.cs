@@ -207,10 +207,17 @@ namespace WindowsFormsApp2
     {
         public Sobel()
         {
-            int sizeX = 3;
-            int sizeY = 3;
-            ///kernel = new float[sizeX, sizeY];
+            
             kernel = new float[3, 3] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } };
         }
     }
+    class Imagesharpener : MatrixFilters
+    {
+        public Imagesharpener()
+        {
+            kernel = new float[3, 3] { { 0,-1, 0 }, { -1, 0, -1 }, { 0, -1, 0 } };
+            
+        }
+    }
+
 }

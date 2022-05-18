@@ -122,16 +122,19 @@ namespace WindowsFormsApp2
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-        private void FiltersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         
 
-        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Filters filter = new Sobel();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void ImageShapenerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Imagesharpener();
 
             backgroundWorker1.RunWorkerAsync(filter);
         }

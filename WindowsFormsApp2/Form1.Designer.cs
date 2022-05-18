@@ -42,13 +42,14 @@ namespace WindowsFormsApp2
             this.matrixFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageShapenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayScaleFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
-            this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,6 @@ namespace WindowsFormsApp2
             this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
             this.filtersToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.filtersToolStripMenuItem.Text = "Filters";
-            this.filtersToolStripMenuItem.Click += new System.EventHandler(this.FiltersToolStripMenuItem_Click);
             // 
             // pointFiltersToolStripMenuItem
             // 
@@ -103,21 +103,21 @@ namespace WindowsFormsApp2
             // invertFiltersToolStripMenuItem
             // 
             this.invertFiltersToolStripMenuItem.Name = "invertFiltersToolStripMenuItem";
-            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.invertFiltersToolStripMenuItem.Text = "Invert Filters";
             this.invertFiltersToolStripMenuItem.Click += new System.EventHandler(this.InvertFiltersToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
-            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sepiaToolStripMenuItem.Text = "Sepia";
             this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.SepiaToolStripMenuItem_Click);
             // 
             // thresholdToolStripMenuItem2
             // 
             this.thresholdToolStripMenuItem2.Name = "thresholdToolStripMenuItem2";
-            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
             this.thresholdToolStripMenuItem2.Text = "Threshold";
             this.thresholdToolStripMenuItem2.Click += new System.EventHandler(this.ThresholdToolStripMenuItem2_Click);
             // 
@@ -126,7 +126,8 @@ namespace WindowsFormsApp2
             this.matrixFiltersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.blurToolStripMenuItem,
             this.gaussianToolStripMenuItem,
-            this.sobelToolStripMenuItem});
+            this.sobelToolStripMenuItem,
+            this.imageShapenerToolStripMenuItem});
             this.matrixFiltersToolStripMenuItem.Name = "matrixFiltersToolStripMenuItem";
             this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matrixFiltersToolStripMenuItem.Text = "Matrix Filters";
@@ -145,6 +146,20 @@ namespace WindowsFormsApp2
             this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianToolStripMenuItem_Click);
+            // 
+            // sobelToolStripMenuItem
+            // 
+            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobelToolStripMenuItem.Text = "Sobel ";
+            this.sobelToolStripMenuItem.Click += new System.EventHandler(this.SobelToolStripMenuItem_Click);
+            // 
+            // imageShapenerToolStripMenuItem
+            // 
+            this.imageShapenerToolStripMenuItem.Name = "imageShapenerToolStripMenuItem";
+            this.imageShapenerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.imageShapenerToolStripMenuItem.Text = "Image Sharpener";
+            this.imageShapenerToolStripMenuItem.Click += new System.EventHandler(this.imageShapenerToolStripMenuItem_Click);
             // 
             // grayScaleFilterToolStripMenuItem
             // 
@@ -194,13 +209,6 @@ namespace WindowsFormsApp2
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // sobelToolStripMenuItem
-            // 
-            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
-            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sobelToolStripMenuItem.Text = "Sobel ";
-            this.sobelToolStripMenuItem.Click += new System.EventHandler(this.sobelToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(884, 561);
@@ -244,6 +252,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.ToolStripMenuItem thresholdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thresholdToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageShapenerToolStripMenuItem;
     }
 }
 
