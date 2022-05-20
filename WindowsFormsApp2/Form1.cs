@@ -138,5 +138,19 @@ namespace WindowsFormsApp2
 
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void EmbossingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Embosing();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void motionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new Motion();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
