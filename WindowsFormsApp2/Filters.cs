@@ -217,7 +217,7 @@ namespace WindowsFormsApp2
     {
         public Imagesharpener()
         {
-            kernel = new float[3, 3] { { 0,-2, 0 }, { -2, 11, -2 }, { 0, -2, 0 } };
+            kernel = new float[3, 3] { { 0,-1, 0 }, { -1, 5, -1 }, { 0, -1, 0 } };
             
         }
     }
@@ -268,22 +268,25 @@ namespace WindowsFormsApp2
         public Motion()
         {
 
-            kernel = new float[9, 9] { { 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-                                        { 0, 1, 0, 0, 0, 0, 0, 1, 0 },
-                                        {  0, 0, 1, 0, 0, 0, 1, 0, 0},
-                                        { 0, 0, 0, 1, 0, 1, 0, 0, 0 },
+
+
+
+            kernel = new float[9, 9] { { 1, 0, 0, 0, 0, 0, 0, 0, 0 },
+                                        { 0, 1, 0, 0, 0, 0, 0, 0, 0 },
+                                        {  0, 0, 1, 0, 0, 0, 0, 0, 0},
+                                        { 0, 0, 0, 1, 0, 0, 0, 0, 0 },
                                         { 0, 0, 0, 0, 1 ,0, 0, 0, 0 },
-                                        { 0, 0, 0, 1, 0, 1, 0, 0, 0 },
-                                        {  0, 0, 1, 0, 0, 0, 1, 0, 0},
-                                        { 0, 1, 0, 0, 0, 0, 0, 1, 0 },
-                                        { 1, 0, 0, 0, 0, 0, 0, 0, 1 } };
-            /*int n = 9;//amount of ones
+                                        { 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+                                        {  0, 0, 0, 0, 0, 0, 1, 0, 0},
+                                        { 0, 0, 0, 0, 0, 0, 0, 1, 0 },
+                                        { 0, 0, 0, 0, 0, 0, 0, 0, 1 } };
+            int n = 9;//amount of ones
             for (int i = 0; i < n; i++)
             {
-                double factor = 1 / n;
-                kernel =factor(new float[9,9] );
+                float factor = 1.0f / n;
+                kernel[i, i] = factor;
             }
-            */
+            
         }
 
     }       

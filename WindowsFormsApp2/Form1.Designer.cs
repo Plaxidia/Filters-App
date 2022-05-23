@@ -135,7 +135,7 @@ namespace WindowsFormsApp2
             this.embossingToolStripMenuItem,
             this.motionToolStripMenuItem});
             this.matrixFiltersToolStripMenuItem.Name = "matrixFiltersToolStripMenuItem";
-            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.matrixFiltersToolStripMenuItem.Text = "Matrix Filters";
             this.matrixFiltersToolStripMenuItem.Click += new System.EventHandler(this.MatrixFiltersToolStripMenuItem_Click);
             // 
@@ -163,8 +163,9 @@ namespace WindowsFormsApp2
             // imageShapenerToolStripMenuItem
             // 
             this.imageShapenerToolStripMenuItem.Name = "imageShapenerToolStripMenuItem";
-            this.imageShapenerToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.imageShapenerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.imageShapenerToolStripMenuItem.Text = "Image Sharpener";
+            this.imageShapenerToolStripMenuItem.Click += new System.EventHandler(this.ImageShapenerToolStripMenuItem_Click_1);
             // 
             // embossingToolStripMenuItem
             // 

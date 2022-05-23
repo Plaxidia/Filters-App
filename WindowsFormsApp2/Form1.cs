@@ -175,5 +175,13 @@ namespace WindowsFormsApp2
 
             }
         }
+
+        private void ImageShapenerToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+            Filters filter = new Imagesharpener();
+
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
     }
 }
