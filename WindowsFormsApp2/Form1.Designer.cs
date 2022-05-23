@@ -45,13 +45,14 @@ namespace WindowsFormsApp2
             this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageShapenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.embossingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.motionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.grayScaleFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thresholdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
-            this.motionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +69,8 @@ namespace WindowsFormsApp2
             // 
             this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.filtersToolStripMenuItem});
+            this.filtersToolStripMenuItem,
+            this.saveToolStripMenuItem});
             this.menuStrip3.Location = new System.Drawing.Point(0, 0);
             this.menuStrip3.Name = "menuStrip3";
             this.menuStrip3.Size = new System.Drawing.Size(884, 24);
@@ -99,27 +101,27 @@ namespace WindowsFormsApp2
             this.sepiaToolStripMenuItem,
             this.thresholdToolStripMenuItem2});
             this.pointFiltersToolStripMenuItem.Name = "pointFiltersToolStripMenuItem";
-            this.pointFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pointFiltersToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.pointFiltersToolStripMenuItem.Text = "Point Filters";
             // 
             // invertFiltersToolStripMenuItem
             // 
             this.invertFiltersToolStripMenuItem.Name = "invertFiltersToolStripMenuItem";
-            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.invertFiltersToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.invertFiltersToolStripMenuItem.Text = "Invert Filters";
             this.invertFiltersToolStripMenuItem.Click += new System.EventHandler(this.InvertFiltersToolStripMenuItem_Click);
             // 
             // sepiaToolStripMenuItem
             // 
             this.sepiaToolStripMenuItem.Name = "sepiaToolStripMenuItem";
-            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sepiaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.sepiaToolStripMenuItem.Text = "Sepia";
             this.sepiaToolStripMenuItem.Click += new System.EventHandler(this.SepiaToolStripMenuItem_Click);
             // 
             // thresholdToolStripMenuItem2
             // 
             this.thresholdToolStripMenuItem2.Name = "thresholdToolStripMenuItem2";
-            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
             this.thresholdToolStripMenuItem2.Text = "Threshold";
             this.thresholdToolStripMenuItem2.Click += new System.EventHandler(this.ThresholdToolStripMenuItem2_Click);
             // 
@@ -133,61 +135,75 @@ namespace WindowsFormsApp2
             this.embossingToolStripMenuItem,
             this.motionToolStripMenuItem});
             this.matrixFiltersToolStripMenuItem.Name = "matrixFiltersToolStripMenuItem";
-            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matrixFiltersToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.matrixFiltersToolStripMenuItem.Text = "Matrix Filters";
             this.matrixFiltersToolStripMenuItem.Click += new System.EventHandler(this.MatrixFiltersToolStripMenuItem_Click);
             // 
             // blurToolStripMenuItem
             // 
             this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
-            this.blurToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.blurToolStripMenuItem.Text = "Blur";
             this.blurToolStripMenuItem.Click += new System.EventHandler(this.BlurToolStripMenuItem_Click);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianToolStripMenuItem_Click);
             // 
             // sobelToolStripMenuItem
             // 
             this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
-            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.sobelToolStripMenuItem.Text = "Sobel ";
             this.sobelToolStripMenuItem.Click += new System.EventHandler(this.SobelToolStripMenuItem_Click);
             // 
             // imageShapenerToolStripMenuItem
             // 
             this.imageShapenerToolStripMenuItem.Name = "imageShapenerToolStripMenuItem";
-            this.imageShapenerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.imageShapenerToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.imageShapenerToolStripMenuItem.Text = "Image Sharpener";
             // 
             // embossingToolStripMenuItem
             // 
             this.embossingToolStripMenuItem.Name = "embossingToolStripMenuItem";
-            this.embossingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.embossingToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.embossingToolStripMenuItem.Text = "Embossing";
             this.embossingToolStripMenuItem.Click += new System.EventHandler(this.EmbossingToolStripMenuItem_Click);
+            // 
+            // motionToolStripMenuItem
+            // 
+            this.motionToolStripMenuItem.Name = "motionToolStripMenuItem";
+            this.motionToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.motionToolStripMenuItem.Text = "Motion ";
+            this.motionToolStripMenuItem.Click += new System.EventHandler(this.motionToolStripMenuItem_Click);
             // 
             // grayScaleFilterToolStripMenuItem
             // 
             this.grayScaleFilterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thresholdToolStripMenuItem});
             this.grayScaleFilterToolStripMenuItem.Name = "grayScaleFilterToolStripMenuItem";
-            this.grayScaleFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.grayScaleFilterToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.grayScaleFilterToolStripMenuItem.Text = "GrayScaleFilter";
             this.grayScaleFilterToolStripMenuItem.Click += new System.EventHandler(this.GrayScaleFilterToolStripMenuItem_Click);
             // 
             // thresholdToolStripMenuItem
             // 
             this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
-            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(31, 73);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 65);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(609, 292);
             this.pictureBox1.TabIndex = 2;
@@ -206,7 +222,7 @@ namespace WindowsFormsApp2
             // 
             this.progressBar1.Location = new System.Drawing.Point(31, 393);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(493, 23);
+            this.progressBar1.Size = new System.Drawing.Size(517, 23);
             this.progressBar1.TabIndex = 3;
             // 
             // button1
@@ -218,13 +234,6 @@ namespace WindowsFormsApp2
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // motionToolStripMenuItem
-            // 
-            this.motionToolStripMenuItem.Name = "motionToolStripMenuItem";
-            this.motionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.motionToolStripMenuItem.Text = "Motion ";
-            this.motionToolStripMenuItem.Click += new System.EventHandler(this.motionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -272,6 +281,7 @@ namespace WindowsFormsApp2
         private System.Windows.Forms.ToolStripMenuItem imageShapenerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem embossingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem motionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

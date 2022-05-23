@@ -13,7 +13,7 @@ namespace WindowsFormsApp2
     {
         protected abstract Color CalculateNewPixelColor(Bitmap sourceImage, int x, int y);
 
-        public Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
+        public virtual Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
         {   //at the moment the function creates a blank image 
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
             //get all pixels of the image
@@ -184,6 +184,8 @@ namespace WindowsFormsApp2
             int red = sourceColor.R;
             int green = sourceColor.G;
             int blue = sourceColor.B;
+
+            //red = Clamp(red + 128,0, 255);
             int gray = (int)((.36 * red) + (.53 * green) + (.11 * blue));
             if (gray < 128)
             {
@@ -221,14 +223,41 @@ namespace WindowsFormsApp2
     }
     class Embosing: MatrixFilters
     {
-      
+        public override Bitmap ProcessImage(Bitmap sourceImage, BackgroundWorker worker)
+        {   //at the moment the function creates a blank image 
+            Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
+            //get all pixels of the image
+            for (int i = 0; i < sourceImage.Width; i++)
+            {
+                worker.ReportProgress((int)((float)i / resultImage.Width * 100));
+                for (int j = 0; j < sourceImage.Height; j++)
+                {
+
+                    Color tmp = CalculateNewPixelColor(sourceImage, i, j);
+                    int R = tmp.R;
+                    int G = tmp.G;
+                    int B = tmp.B;
+
+                    R = Clamp(R + 128, 0, 255);
+                    G = Clamp(G + 128, 0, 255);
+                    B = Clamp(B + 128, 0, 255);
+                    Color tmp2 = Color.FromArgb(R, G,B);
+
+       
+                    resultImage.SetPixel(i, j, tmp2);
+                }
+            }
+            return resultImage;
+        }
+
+
 
         public Embosing()
         {
-            float brightness = 1.0f;
+            //float brightness = 1.0f;
 
             kernel = new float[3, 3] { { 0, 1, 0 }, { 1, 0, -1 }, { 0, -1, 0 } };
-            //+brightness;
+            
            
 
 

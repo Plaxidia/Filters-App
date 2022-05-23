@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accord.IO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace WindowsFormsApp2
 
         }
 
-        private void ToolStripMenuItem1_Click(object sender, EventArgs e )
+        private void ToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
 
@@ -33,7 +34,7 @@ namespace WindowsFormsApp2
                 Filter = "Image files|*.png;*.bmp|All Files(*.*)|*.*"
             };
 
-            if (dialog.ShowDialog() == DialogResult.OK) 
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
 
                 image = new Bitmap(dialog.FileName);
@@ -58,11 +59,11 @@ namespace WindowsFormsApp2
 
         private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            image = ((Filters)e.Argument).ProcessImage(image,backgroundWorker1);
+            image = ((Filters)e.Argument).ProcessImage(image, backgroundWorker1);
 
         }
 
-       
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -122,8 +123,8 @@ namespace WindowsFormsApp2
             backgroundWorker1.RunWorkerAsync(filter);
         }
 
-       
-        
+
+
 
         private void SobelToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -151,6 +152,28 @@ namespace WindowsFormsApp2
             Filters filter = new Motion();
 
             backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+       
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SaveFileDialog saveFiledialog = new SaveFileDialog();
+            saveFiledialog.Filter = "Image files|*.png;*.bmp|All Files(*.*)|*.*";
+            
+
+            if (saveFiledialog.ShowDialog() == DialogResult.OK)
+            {
+
+              // image = saveFiledialog.FileName;
+                //visualise the image
+               // pictureBox1.Image = image;
+               //  image = backgroundWorker1.RunWorkerAsync(filter);
+               // pictureBox1.Save( backgroundWorker1.RunWorkerAsync(filter));
+
+
+            }
         }
     }
 }
